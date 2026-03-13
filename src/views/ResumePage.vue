@@ -16,6 +16,10 @@
       <p class="degree">
         Bachelor of Science in Computer Science, ITMO University (Second Degree)
       </p>
+      <p class="degree">
+        M.Sc. in Progress, The Hong Kong Polytechnic University (Expected 2026-2027)
+      </p>
+      
 
       <p class="languages">
         Languages: English <b>(IELTS 7.0)</b>, Cantonese (Native), Chinese (Native)

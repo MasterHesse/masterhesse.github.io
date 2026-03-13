@@ -47,6 +47,24 @@ export default {
             '一个用 Rust 实现的个人学习版 Redis-like 内存数据缓存，关注数据结构与并发模型。',
           link: 'https://github.com/MasterHesse/Crab-Cage',
         },
+        {
+          title: 'DigLearn（数字电路 AI 学习平台）',
+          description:
+            'DigLearn 是一个专为数字电路学习打造的练习与仿真平台，提供从知识点图谱查询、题库练习（支持章节、推荐、错题与巩固模式），到在线关卡挑战与自动判题的完整学习闭环。',
+          link: 'https://github.com/MasterHesse/digital-circuit-ai-learning-platform',
+        },
+        {
+          title: 'Crab-Burrows 蟹洞',
+          description:
+            '一个用 Rust 实现的，类似 SQLite 的嵌入式数据库（我们称它为 Crab-Burrows 蟹洞）。',
+          link: 'https://github.com/MasterHesse/Crab-Burrows',
+        },
+        {
+          title: 'ACTrade 激活码交易平台',
+          description:
+            '提供一个软件激活码交易平台。中小型软件开发团队/个人开发者可以将加密软件的激活工具交给平台托管，进行激活码售卖。普通用户可以在平台购买激活码，或者直接使用平台提供的激活码生成服务。',
+          link: 'https://github.com/MasterHesse/activation_code_trade_platform',
+        },
       ],
     };
   },
@@ -84,6 +102,10 @@ export default {
   background: #b33a3a;
   border: 3px solid #b33a3a;
 
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
@@ -120,6 +142,8 @@ export default {
   line-height: 1.6;
   opacity: 0.85;
   margin-bottom: 22px;
+
+  flex: 1;
 }
 
 /* 链接按钮 */
