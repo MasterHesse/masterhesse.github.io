@@ -8,9 +8,9 @@
         <li>
           <router-link to="/projects" class="nav-link">PROJECTS</router-link>
         </li>
-        <li>
+        <!-- <li>
           <router-link to="/blog" class="nav-link">BLOGS</router-link>
-        </li>
+        </li> -->
         <li>
           <router-link to="/contact" class="nav-link">CONTACTS</router-link>
         </li>
