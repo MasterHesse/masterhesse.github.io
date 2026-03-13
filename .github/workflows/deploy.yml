@@ -3,29 +3,32 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # 每次推送到 main 分支时触发部署
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4  # 检出代码
+      - uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'  # 根据你的 Node.js 版本选择
+          node-version: '24'
 
       - name: Install dependencies
-        run: |
-          npm ci
+        run: npm ci
 
       - name: Build project
-        run: |
-          npm run build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3  # 使用 GitHub Pages 部署动作
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
         with:
-          github_token: ${{ secrets.GH_TOKEN }}  # 使用 GitHub 提供的 token
-          publish_dir: ./dist  # 发布的目录是 dist/ 文件夹
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
