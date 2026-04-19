@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>&copy; 2025 MasterHesse</p>
+    <p>&copy; 2026 MasterHesse</p>
   </footer>
 </template>
 

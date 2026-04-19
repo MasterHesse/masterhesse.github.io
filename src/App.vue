@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <Header />
-    <main>
-      <router-view /> 
+    <main class="main-content">
+      <router-view v-slot="{ Component }">
+        <transition name="page-fade" mode="out-in" @after-enter="onTransitionComplete">
+          <component :is="Component" :key="$route.path" />
+        </transition>
+      </router-view>
     </main>
     <Footer />
     <Loading v-if="isLoading" />
@@ -15,78 +19,47 @@ import Footer from './components/Footer.vue';
 import Loading from './components/Loading.vue';
 
 export default {
-  name: 'App',
-  components: {
-    Header,
-    Footer,
-    Loading
-  },
-  data() {
-    return {
-      isLoading: false
-    };
+  components: { Header, Footer, Loading },
+  data() { return { isLoading: false, loadingTimer: null }; },
+  methods: {
+    onTransitionComplete() {
+      if (this.loadingTimer) clearTimeout(this.loadingTimer);
+      this.loadingTimer = setTimeout(() => {
+        this.isLoading = false;
+      }, 400);
+    }
   },
   created() {
     this.$router.beforeEach((to, from, next) => {
-      this.isLoading = true; // 启动加载动画
+      this.isLoading = true;
+      next();
+    });
+    // 安全后备：如果transition事件没触发，2秒后强制关闭loading
+    this.$router.afterEach(() => {
       setTimeout(() => {
-        next(); // 页面加载完成后跳转
-        this.isLoading = false; // 关闭加载动画
-      }, 400); // 模拟加载时间
+        if (this.isLoading) {
+          this.isLoading = false;
+        }
+      }, 800);
     });
   }
 };
 </script>
 
 <style>
-/* 全局布局 */
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 保证页面高度最小为视口高度 */
+  min-height: 100vh;
 }
-
-/* Header 样式 */
-header {
-  background-color: #b33a3a; /* 深红色背景 */
-  color: white;
-  padding: 10px 20px;
+.main-content {
+  flex: 1;
+  padding: 40px 0;
 }
-
-/* 页面内容区样式 */
-main {
-  flex-grow: 1; /* 让内容区撑满剩余空间 */
-  padding: 20px;
-  margin: 0;
-  border: none; /* 去除任何可能的边框 */
+.page-fade-enter-active, .page-fade-leave-active {
+  transition: opacity 0.3s ease;
 }
-
-/* Footer 样式 */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  margin-top: auto; /* 确保 Footer 始终固定在底部 */
+.page-fade-enter-from, .page-fade-leave-to {
+  opacity: 0;
 }
-
-/* 全局样式：去除多余的边框或阴影 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* 确保所有元素使用统一的盒模型 */
-}
-
-body {
-  font-family: Arial, sans-serif;
-  font-weight: 400;
-}
-
-.art-font {
-  font-family: 'Arial Black', Gadget, sans-serif;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-
 </style>

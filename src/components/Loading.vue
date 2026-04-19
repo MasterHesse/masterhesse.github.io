@@ -16,15 +16,13 @@ export default {
 <style scoped>
 .loading-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(128, 128, 128, 0.5); /* 灰色背景 */
+  inset: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px); /* 强力模糊背景 */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* 确保它在其他内容上方 */
+  z-index: 10000;
 }
 
 .loading-content {
@@ -33,20 +31,14 @@ export default {
 }
 
 .loading-gif {
-  width: 30%;
-  height: 30%;
-  /* animation: rotate 1s infinite linear; */
+  width: 50%;
+  height: 50%;
 }
 
 .loading-text {
-  font-size: 36px;
-  color: white;
-  margin-top: 10px;
-  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  color: var(--primary-red);
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
-
-/* @keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-} */
 </style>

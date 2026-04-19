@@ -1,80 +1,62 @@
 <template>
   <header class="header">
-    <nav>
+    <nav class="nav-container">
+      <div class="logo">MASTERHESSE</div>
       <ul class="nav-list">
-        <li>
-          <router-link to="/" class="nav-link">MASTERHESSE</router-link>
-        </li>
-        <li>
-          <router-link to="/projects" class="nav-link">PROJECTS</router-link>
-        </li>
-        <!-- <li>
-          <router-link to="/blog" class="nav-link">BLOGS</router-link>
-        </li> -->
-        <li>
-          <router-link to="/contact" class="nav-link">CONTACTS</router-link>
-        </li>
+        <li><router-link to="/" class="nav-link">HOME</router-link></li>
+        <li><router-link to="/projects" class="nav-link">PROJECTS</router-link></li>
+        <li><router-link to="/blog" class="nav-link">BLOG</router-link></li>
       </ul>
     </nav>
   </header>
 </template>
 
-<script>
-export default {
-  name: 'Header',
-};
-</script>
-
 <style scoped>
-/* 整体 Header 区域 */
 .header {
-  padding: 24px 48px;
+  padding: 1.5rem 10%;
+  background: var(--gradient-red); /* 大面积红色参与 */
+  box-shadow: 0 4px 20px rgba(179, 58, 58, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* 导航列表 */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+}
+
 .nav-list {
   list-style: none;
   display: flex;
-  gap: 48px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+  gap: 1rem;
 }
 
-/* 链接基础样式 */
 .nav-link {
-  font-weight: bolder;
-  color: white;
-  text-decoration: none;
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
-
-  padding: 10px 18px;
-  border-radius: 14px;
-
-  border: 1.5px solid transparent;
-
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
 }
 
-/* 悬浮效果 */
 .nav-link:hover {
-  color: #ff7f17;
-  background-color: white;
-
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.35);
-
-  transform: translateY(-2px);
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
 }
 
-/* 当前路由高亮（可选，但很推荐） */
 .router-link-active {
-  background-color: white;
-  color: #b33a3a;
+  background: white !important;
+  color: var(--primary-red) !important;
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
 }
 </style>
