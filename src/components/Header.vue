@@ -14,7 +14,7 @@
 <style scoped>
 .header {
   padding: 1.5rem 10%;
-  background: var(--gradient-red); /* 大面积红色参与 */
+  background: var(--dark-red); /* 大面积红色参与 */
   box-shadow: 0 4px 20px rgba(179, 58, 58, 0.2);
   position: sticky;
   top: 0;
