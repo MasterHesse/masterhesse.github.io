@@ -20,7 +20,7 @@ export default {
       projects: [
         { title: 'Crab-Cage', description: '基于 Rust 实现的高性能 Redis-like 内存数据缓存，深度探索并发模型。', link: 'https://github.com/MasterHesse/Crab-Cage' },
         { title: 'DigLearn', description: '数电 AI 学习平台，提供从知识图谱到自动判题的完整闭环。', link: 'https://github.com/MasterHesse/digital-circuit-ai-learning-platform' },
-        
+        { title: 'Phy-HHMR', description: 'Phy-HHMR是一个物理感知的整体人体网格恢复框架，通过交互感知优化和物理一致性先验，从单张图像中恢复出非穿透且接触合理的3D人体网格。', link: 'https://ieeexplore.ieee.org/document/11579747' },
         // { title: 'ACTrade', description: '激活码交易平台，为开发者提供加密软件托管及售卖全流程服务。', link: 'https://github.com/MasterHesse/activation_code_trade_platform' }
       ]
     };

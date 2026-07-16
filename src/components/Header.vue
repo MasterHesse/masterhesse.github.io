@@ -5,7 +5,6 @@
       <ul class="nav-list">
         <li><router-link to="/" class="nav-link">HOME</router-link></li>
         <li><router-link to="/projects" class="nav-link">PROJECTS</router-link></li>
-        <li><router-link to="/blog" class="nav-link">BLOG</router-link></li>
       </ul>
     </nav>
   </header>
